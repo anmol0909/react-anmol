@@ -1,17 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+// import "./index.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from "./Components/Dashboard";
+import ShowPage from "./Components/Show";
+import NewPage from "./Components/New";
+import BlogFirst from "./Components/Blog1";
+import BlogSecond from "./Components/Blog2";
+import BlogThird from "./Components/Blog3";
+import BlogFourth from "./Components/Blog4";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Dashboard />} />
+        <Route path="Dashboard" element={<Dashboard />} />
+        <Route path="New" element={<NewPage />} />
+        <Route path="Show" element={<ShowPage />} />
+        <Route path="Blog1" element={<BlogFirst />} />
+        <Route path="Blog2" element={<BlogSecond />} />
+        <Route path="Blog3" element={<BlogThird />} />
+        <Route path="Blog4" element={<BlogFourth />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
